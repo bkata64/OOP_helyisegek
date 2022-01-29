@@ -1,4 +1,4 @@
-class Helyseg:
+class Helyiseg:
     def __init__(self, szelesseg, hosszusag, magassag):
         self.szelesseg = szelesseg
         self.magassag = magassag
@@ -21,9 +21,9 @@ def beker():
     for i in range(helyisegek_szama):
         print(f"{i + 1}. helyiség adatai:")
         sz = float(input("\tHelyiség szélesség: "))
-        h = float(input("\tHelyiség hosszuság: "))
+        h = float(input("\tHelyiség hosszúság: "))
         m = float(input("\tHelyiség magasság: "))
-        helyiseg = Helyseg(sz, h, m)
+        helyiseg = Helyiseg(sz, h, m)
         hely.append(helyiseg)
     return hely
 
@@ -35,7 +35,7 @@ def beolvas():
             sz = float(adatok[0])
             h = float(adatok[1])
             m = float(adatok[2])
-            helyiseg = Helyseg(sz, h, m)
+            helyiseg = Helyiseg(sz, h, m)
             lista.append(helyiseg)
     return lista
 
@@ -54,7 +54,7 @@ def kiertekel(helyisegek):
         print(f"\tFesték: {round(ff * mennyiseg_m2)} l")
 
     print(f"\nÖsszes szükséges padlóburkoló: {ossz_at} m2")
-    print(f"Összes szükseges festékmennyiség: {round(ossz_ff * mennyiseg_m2)} l")
+    print(f"Összes szükséges festékmennyiség: {round(ossz_ff * mennyiseg_m2)} l")
 
 def main():
     print("Helyiségek festése, kövezése")
