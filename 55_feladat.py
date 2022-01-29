@@ -39,29 +39,31 @@ def beolvas():
             lista.append(helyiseg)
     return lista
 
+def kiertekel(helyisegek):
+    print("\nA szükséges alapanyagok mennyisége:")
+    mennyiseg_m2 = 0.13
+    ossz_at = 0
+    ossz_ff = 0
+    for i, hely_ in enumerate(helyisegek):
+        print(f"A(z) {i + 1}. helyiséghez szükséges:")
+        at = hely_.alapterulet()
+        ossz_at += at
+        print(f"\tPadlóburkoló: {at} m2")
+        ff = hely_.festett_felulet()
+        ossz_ff += ff
+        print(f"\tFesték: {round(ff * mennyiseg_m2)} l")
+
+    print(f"\nÖsszes szükséges padlóburkoló: {ossz_at} m2")
+    print(f"Összes szükseges festékmennyiség: {round(ossz_ff * mennyiseg_m2)} l")
+
 
 print("Helyiségek festése, kövezése")
-
 valasz = input("Az adatokat állományból olvassuk be? (i / n): ")
 helyisegek = []
-
 if valasz == "i":
     helyisegek = beolvas()
 elif valasz == "n":
     helyisegek = beker()
+kiertekel(helyisegek)
 
-print("\nA szükséges alapanyagok mennyisége:")
-mennyiseg_m2 = 0.13
-ossz_at = 0
-ossz_ff = 0
-for i, hely_ in enumerate(helyisegek):
-    print(f"A(z) {i + 1}. helyiséghez szükséges:")
-    at = hely_.alapterulet()
-    ossz_at += at
-    print(f"\tPadlóburkoló: {at} m2")
-    ff = hely_.festett_felulet()
-    ossz_ff += ff
-    print(f"\tFesték: {round(ff * mennyiseg_m2)} l")
 
-print(f"\nÖsszes szükséges padlóburkoló: {ossz_at} m2")
-print(f"Összes szükseges festékmennyiség: {round(ossz_ff * mennyiseg_m2)} l")
