@@ -56,14 +56,16 @@ def kiertekel(helyisegek):
     print(f"\nÖsszes szükséges padlóburkoló: {ossz_at} m2")
     print(f"Összes szükseges festékmennyiség: {round(ossz_ff * mennyiseg_m2)} l")
 
+def main():
+    print("Helyiségek festése, kövezése")
+    valasz = input("Az adatokat állományból olvassuk be? (i / n): ")
+    helyisegek = []
+    if valasz == "i":
+        helyisegek = beolvas()
+    elif valasz == "n":
+        helyisegek = beker()
+    kiertekel(helyisegek)
 
-print("Helyiségek festése, kövezése")
-valasz = input("Az adatokat állományból olvassuk be? (i / n): ")
-helyisegek = []
-if valasz == "i":
-    helyisegek = beolvas()
-elif valasz == "n":
-    helyisegek = beker()
-kiertekel(helyisegek)
+main()
 
 
