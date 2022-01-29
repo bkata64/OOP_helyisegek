@@ -36,7 +36,7 @@ def modosit():
 def beolvas():
     global sorszam
     #helyisegek = []
-    with open("hely.txt", "r") as file:
+    with open("helyisegek.txt", "r") as file:
         for sor in file:
             adatok = sor.strip().split()
             sz = float(adatok[0])
@@ -47,8 +47,10 @@ def beolvas():
     sorszam = len(helyisegek) - 1
     megjelenit()
 
-def kiiras():
-    pass
+def kiiras():    
+    with open("helyisegek.txt", "w", encoding="UTF-8") as outfile:
+        for helyiseg in helyisegek:
+            outfile.write(f"{helyiseg.szelesseg} {helyiseg.hosszusag} {helyiseg.magassag}\n")            
 
 def megjelenit():
     ent_sz.delete(0,5)
